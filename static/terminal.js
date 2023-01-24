@@ -78,7 +78,7 @@
                                 {
                                     'name': 'resume',
                                     'type': fileType.LINK,
-                                    'content': 'cv.pdf'
+                                    'content': 'public/cv.pdf'
                                 },
                             ]
                         },
