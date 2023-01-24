@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Terminal</title>
+		<link rel="stylesheet" media="all" href="../static/terminal.css">
+		<meta name=keywords content=pentester,software,engineer,waykodev,wayko,Penetration,Tester,freelance,open,source>
+		<meta name=description content="Franck Chevalier, Penetration Tester from Reunion Island.">
+		<meta content="Franck Chevalier, Penetration Tester from Reunion Island." name=description>
+		<meta content="Franck Chevalier, Penetration Tester from Reunion Island." property=og:description>
+		<meta content="Franck Chevalier, Penetration Tester from Reunion Island." property=og:title>
+		<meta content=website property=og:type>
+		<meta content="Franck Chevalier, Penetration Tester" property=og:site_name>
+		<!-- Favicon -->
+    		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	</head>
+<body>
+	<div id="terminal"></div>
+		<script src="../static/terminal.js"></script>
+		<script>
+		var terminal = new Terminal('terminal', {}, {
+			execute: function(cmd, args) {
+				switch (cmd) {
+					case 'clear':
+						terminal.clear();
+						return '';
+					case 'help':
+					case 'h':
+					case '?':
+		                		return terminal.displayHelp();
+					case 'whoami':
+						return 'guest';
+					case 'hostname':
+						return 'waykodev';
+					case 'ifconfig':
+						return '1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000<br>link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>inet 127.0.0.1/8 scope host lo<br>valid_lft forever preferred_lft forever<br>inet6 ::1/128 scope host<br>valid_lft forever preferred_lft forever';
+					case 'theme':
+						if (args && args[0]) {
+							if (args.length > 1) return 'Too many arguments';
+							else if (args[0].match(/^interlaced|modern|white$/)) { terminal.setTheme(args[0]); return ''; }
+							else return 'Invalid theme (interlaced, modern, white)';
+						}
+						return terminal.getTheme();
+					case 'version':
+						return '1.0.3';
+					case 'ls':
+						var directory = '.';
+						if (args && args.length > 0) {
+							if (args.length > 1) return 'Too many arguments';
+							else directory = args[0];
+						}
+						return terminal.listDirectory(directory);
+					case 'll':
+						var directory = '.';
+						if (args && args.length > 0) {
+							if (args.length > 1) return 'Too many arguments';
+							else directory = args[0];
+						}
+						return terminal.llistDirectory(directory);
+					case 'cd':
+						var directory = '/';
+						if (args && args.length > 0) {
+							if (args.length > 1) return 'Too many arguments';
+							else directory = args[0];
+						}
+						return terminal.changeDirectory(directory);
+					case 'pwd':
+						return terminal.currentDirectory();
+					case 'cat':
+						if (!args || args.length <= 0) return 'Too few arguments<br />Usage: cat &lt;file&gt;';
+						else if (args.length > 1) return 'Too many arguments<br />Usage: cat &lt;file&gt;';
+						else return terminal.catFile(args[0]);
+					case 'open':
+						if (!args || args.length <= 0) return 'Too few arguments<br />Usage: cat &lt;file&gt;';
+						else if (args.length > 1) return 'Too many arguments<br />Usage: cat &lt;file&gt;';
+						else return terminal.openFile(args[0]);
+					case 'about':
+						return 'Inspired by <a href="https://github.com/sasadjolic/dom-terminal" class="external" target="_blank">dom-terminal</a> project';	
+					default:
+						// Unknown command.
+						return false;
+				};
+			}
+		});
+		</script>
+</body>
+</html>
+
