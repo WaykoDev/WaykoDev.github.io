@@ -247,7 +247,7 @@
                  	],
                  "opt_args":[],
                  "description":"Open provided LINK",
-                 "usage":"open /blogs/chvl.re"
+                 "usage":"open /resume/resume"
             },
            "pwd": {
                  "req_args":[],
