@@ -4,16 +4,18 @@
     "type": "page",
     "display": "hidden"
   },
-  "another": "Another Page",
+  "write-ups": {
+    "title": "Write-ups",
+    "type": "page"
+  },
+  "another": "Une autre page",
   "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://x.com/WaykoDev",
-    "newWindow": true
+    "title": "Contact",
+    "type": "page"
   }
 }

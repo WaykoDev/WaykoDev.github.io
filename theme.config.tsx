@@ -24,8 +24,7 @@ const config: DocsThemeConfig = {
     { locale: "en-US", text: "English" },
     { locale: "fr-FR", text: "Français" },
   ],
-  darkMode: false,
-  defaultTheme: "dark",
+  darkMode: false
 };
 
 export default config;
