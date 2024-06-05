@@ -1,0 +1,19 @@
+{
+  "index": {
+    "title": "Accueil",
+    "type": "page",
+    "display": "hidden"
+  },
+  "another": "Une autre page",
+  "advanced": "Avancé (Un dossier)",
+  "about": {
+    "title": "À propos",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://x.com/WaykoDev",
+    "newWindow": true
+  }
+}
