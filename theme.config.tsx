@@ -18,12 +18,14 @@ const config: DocsThemeConfig = {
   // },
   docsRepositoryBase: "https://github.com/WaykoDev/website",
   footer: {
-    text: "Nextra Docs Template",
+    text: "Wayko Cellar - All rights reserved © " + new Date().getFullYear(),
   },
   i18n: [
     { locale: "en-US", text: "English" },
     { locale: "fr-FR", text: "Français" },
   ],
+  darkMode: false,
+  defaultTheme: "dark",
 };
 
 export default config;
