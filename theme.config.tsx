@@ -1,8 +1,15 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
+import { ReactComponent as Logo } from "./assets/logo.svg";
+
 const config: DocsThemeConfig = {
-  logo: <span>WaykoDev</span>,
+  logo: (
+    <Logo
+      style={{ maxWidth: "60px", width: "100%", height: "100%" }}
+      preserveAspectRatio="xMidYMid meet"
+    />
+  ),
   project: {
     link: "https://github.com/WaykoDev",
   },

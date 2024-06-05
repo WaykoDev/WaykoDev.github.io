@@ -1,31 +1,3 @@
-# Introduction
+import Galaxy from "../components/webgl/Galaxy/Galaxy";
 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
-
-## What is Nextra?
-
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
-
-## Documentation
-
-The documentation is available at [https://nextra.site](https://nextra.site).
-
-## Exemple of a ReactJS component intégration
-
-import { useState } from "react";
-
-{/* Import CSS modules */}
-import styles from '../components/counters.module.css'
-
-export const Counter = () => {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)} className={styles.counter}>
-        Clicked {count} times
-      </button>
-    </div>
-  );
-};
-
-<Counter />
+<Galaxy />
