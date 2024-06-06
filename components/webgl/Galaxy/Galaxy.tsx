@@ -2,39 +2,39 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
+import glsl from "glslify";
 
-import vertexShader from "./vertexShader.glsl";
-import fragmentShader from "./fragmentShader.glsl";
+// import vertexShader from "!!raw-loader!./vertexShader.glsl";
+// import fragmentShader from "!!raw-loader!./fragmentShader.glsl";
 
-// const fragmentShader = `
-// varying float vDistance;
+const fragmentShader = glsl(`
+varying float vDistance;
 
-// void main() {
-//     vec3 color = vec3(0.34, 0.53, 0.96);
-//     float strength = distance(gl_PointCoord, vec2(0.5));
-//     strength = 1.0 - strength;
-//     strength = pow(strength, 3.0);
+void main() {
+    vec3 color = vec3(0.34, 0.53, 0.96);
+    float strength = distance(gl_PointCoord, vec2(0.5));
+    strength = 1.0 - strength;
+    strength = pow(strength, 3.0);
 
-//     color = mix(color, vec3(0.97, 0.70, 0.45), vDistance * 0.5);
-//     color = mix(vec3(0.0), color, strength);
-//     gl_FragColor = vec4(color, strength);
-// }
-// `;
+    color = mix(color, vec3(0.97, 0.70, 0.45), vDistance * 0.5);
+    color = mix(vec3(0.0), color, strength);
+    gl_FragColor = vec4(color, strength);
+}
+`);
+const vertexShader = glsl(`
+varying float vDistance;
 
-// const vertexShader = `
-// varying float vDistance;
+void main() {
+    vec3 color = vec3(0.34, 0.53, 0.96);
+    float strength = distance(gl_PointCoord, vec2(0.5));
+    strength = 1.0 - strength;
+    strength = pow(strength, 3.0);
 
-// void main() {
-//     vec3 color = vec3(0.34, 0.53, 0.96);
-//     float strength = distance(gl_PointCoord, vec2(0.5));
-//     strength = 1.0 - strength;
-//     strength = pow(strength, 3.0);
-
-//     color = mix(color, vec3(0.97, 0.70, 0.45), vDistance * 0.5);
-//     color = mix(vec3(0.0), color, strength);
-//     gl_FragColor = vec4(color, strength);
-// }
-// `;
+    color = mix(color, vec3(0.97, 0.70, 0.45), vDistance * 0.5);
+    color = mix(vec3(0.0), color, strength);
+    gl_FragColor = vec4(color, strength);
+}
+`);
 
 const CustomGeometryParticles = (props) => {
   const { count } = props;
