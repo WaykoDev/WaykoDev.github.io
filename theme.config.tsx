@@ -18,10 +18,10 @@ const config: DocsThemeConfig = {
     text: "Wayko Cellar - All rights reserved © " + new Date().getFullYear(),
   },
   i18n: [
-    { locale: "en-US", text: "English" },
-    { locale: "fr-FR", text: "Français" },
+    { locale: "en", text: "English" },
+    { locale: "fr", text: "Français" },
   ],
-  darkMode: false
+  darkMode: false,
 };
 
 export default config;
