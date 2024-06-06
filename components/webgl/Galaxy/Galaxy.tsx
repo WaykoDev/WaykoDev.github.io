@@ -21,6 +21,7 @@ void main() {
     gl_FragColor = vec4(color, strength);
 }
 `);
+
 const vertexShader = glsl(`
 varying float vDistance;
 
