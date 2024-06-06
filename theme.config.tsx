@@ -1,13 +1,17 @@
 import React from "react";
+import Image from "next/image";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
-import { ReactComponent as Logo } from "./assets/logo.svg";
+import Logo from "./assets/logo.svg";
 
 const config: DocsThemeConfig = {
   logo: (
-    <Logo
+    <Image
+      src={Logo}
+      width={60}
+      height={60}
+      alt="Wayko Logo"
       style={{ maxWidth: "60px", width: "100%", height: "100%" }}
-      preserveAspectRatio="xMidYMid meet"
     />
   ),
   project: {
