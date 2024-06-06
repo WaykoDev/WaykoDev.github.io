@@ -4,13 +4,17 @@
     "type": "page",
     "display": "hidden"
   },
+  "about": {
+    "title": "À propos",
+    "type": "page"
+  },
   "writeups": {
     "title":"Writeups",
     "type": "page"
   }, 
-  "about": {
-    "title": "À propos",
-    "type": "page"
+  "links": {
+    "title": "Links",
+    "type":"page"
   },
   "contact": {
     "title": "Contact",

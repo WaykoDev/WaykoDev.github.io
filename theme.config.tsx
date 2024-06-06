@@ -30,6 +30,7 @@ const config: DocsThemeConfig = {
     defaultTheme: "dark",
     forcedTheme: "dark",
   },
+  primaryHue: 272
 };
 
 export default config;
