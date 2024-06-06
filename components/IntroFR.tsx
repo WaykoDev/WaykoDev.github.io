@@ -5,7 +5,7 @@ export function IntroFR() {
         Wayko Infosec
       </h1>
       <h2 className="md:text-4xl sm:text-2xl text-l font-mono text-center">
-        Writeup, research and others
+        Writeup, research and others 👾
       </h2>
     </div>
   );
