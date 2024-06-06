@@ -73,13 +73,7 @@ const CustomGeometryParticles = (props) => {
 
 const Scene = () => {
   return (
-    <div className="w-full h-[800px] pointer-events-none">
-      <div className="absolute z-50 inset-0 flex flex-col items-center justify-center">
-        <h1 className="text-8xl font-mono mb-10 font-bold">
-          Wayko infosec blog
-        </h1>
-        <h2 className="text-4xl font-mono">Writeup and research, enjoy reading 📖 !</h2>
-      </div>
+    <div className="fixed -z-10 inset-0 w-screen h-screen pointer-events-none bg-black">
       <Canvas camera={{ position: [2.0, 2.0, 2.0] }}>
         <ambientLight intensity={0.5} />
         <CustomGeometryParticles count={4000} />
