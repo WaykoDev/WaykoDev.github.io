@@ -1,0 +1,84 @@
+# HTB: Tally
+
+## Recon
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+
+```
+wayko@hacknreal$ nmap -p- --min-rate 10000 -oA scans/nmap-alltcp 10.10.10.59
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-04-09 10:54 UTC
+Warning: 10.10.10.59 giving up on port because retransmission cap hit (10).
+Nmap scan report for 10.10.10.59
+Host is up (0.090s latency).
+Not shown: 65469 closed ports, 45 filtered ports
+PORT      STATE SERVICE
+21/tcp    open  ftp
+80/tcp    open  http
+81/tcp    open  hosts2-ns
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+808/tcp   open  ccproxy-http
+1433/tcp  open  ms-sql-s
+5985/tcp  open  wsman
+15567/tcp open  unknown
+32843/tcp open  unknown
+32844/tcp open  unknown
+32846/tcp open  unknown
+47001/tcp open  winrm
+49664/tcp open  unknown
+49665/tcp open  unknown
+49666/tcp open  unknown
+49667/tcp open  unknown
+49668/tcp open  unknown
+49669/tcp open  unknown
+49670/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 19.43 seconds
+```
+
+The box is clearly a Windows host, and based on the IIS version, the host is likely running Windows 10 or Server 2016 (it’s not going to be 2019 since this box was released in 2017).
+
+When I Google “Windows TCP 32843”, the first link is this post about TCP ports used by SharePoint. It included 808, 32843, 32844, and 32864 as services in use for SharePoint, and this is a pretty good indication of what may be to come.
+
+With this many ports, I’ll make a list of what I want to investigate. First, I need to dig right into:
+
+    HTTP using IIS on 80, which `nmap` identified as SharePoint.
+
+There’s a bunch of services that I’ll need creds to connect to (I’ll do a quick check for each to confirm that):
+
+    FTP on 21 - nmap didn’t call out anonymous login, and I confirmed it. Will check back with creds.
+    HTTP using IIS on 15567 - Visiting just prompts for HTTP basic auth, and I don’t have creds.
+    SMB/RPC/NetBios on 135/139/445 - Trying to connect with `smbclient -N -L //10.10.10.59` returns `NT_STATUS_ACCESS_DENIED`. Will have to check back if I find creds.
+    MSSQL on 1433 - Need creds to authenticate to the DB.
+    WinRM on 5985 - Not much I can do without creds, but with creds, worth a try to get a shell.
+
+Then there’s other ports I basically ignore for now:
+
+    81 - Some kind of service HTTP, but querying it just returns Bad- Request.
+    808, 32843, 32844, 32846 - All support SharePoint based on the link above.
+    47001 - Support for WinRM
+    49664-49670 - RPC ports
+
+## Exploit
+
+```html
+
+POST /upload HTTP/1.1
+Host: localhost
+User-Agent: wayko-agent
+Accept: */*
+Authorization: Bearer <your_jwt_token>
+Content-Length: 186
+Content-Type: multipart/form-data; boundary=------------------------fbe19391878c34fe
+Connection: keep-alive
+
+--------------------------fbe19391878c34fe
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+Hello :D
+--------------------------fbe19391878c34fe--
+```
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.

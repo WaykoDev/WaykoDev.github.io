@@ -4,12 +4,10 @@
     "type": "page",
     "display": "hidden"
   },
-  "write-ups": {
-    "title": "Write-ups",
+  "writeups": {
+    "title":"Writeups",
     "type": "page"
-  },
-  "another": "Une autre page",
-  "advanced": "Advanced (A Folder)",
+  }, 
   "about": {
     "title": "About",
     "type": "page"
