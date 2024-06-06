@@ -26,6 +26,10 @@ const config: DocsThemeConfig = {
     { locale: "fr", text: "Français" },
   ],
   darkMode: false,
+  nextThemes: {
+    defaultTheme: "dark",
+    forcedTheme: "dark",
+  },
 };
 
 export default config;
