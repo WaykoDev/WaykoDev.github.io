@@ -8,13 +8,13 @@
     "title": "À propos",
     "type": "page"
   },
-  "writeups": {
-    "title":"Writeups",
+  "write-ups": {
+    "title": "Rédactionnels",
     "type": "page"
-  }, 
+  },
   "links": {
-    "title": "Links",
-    "type":"page"
+    "title": "Liens",
+    "type": "page"
   },
   "contact": {
     "title": "Contact",

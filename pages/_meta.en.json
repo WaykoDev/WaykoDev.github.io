@@ -8,13 +8,13 @@
     "title": "About",
     "type": "page"
   },
-  "writeups": {
-    "title":"Writeups",
+  "write-ups": {
+    "title": "Write Ups",
     "type": "page"
-  }, 
+  },
   "links": {
     "title": "Links",
-    "type":"page"
+    "type": "page"
   },
   "contact": {
     "title": "Contact",
