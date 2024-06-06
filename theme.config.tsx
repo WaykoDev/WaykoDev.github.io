@@ -13,9 +13,6 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/WaykoDev",
   },
-  // chat: {
-  //   link: "https://discord.com",
-  // },
   docsRepositoryBase: "https://github.com/WaykoDev/website",
   footer: {
     text: "Wayko Cellar - All rights reserved © " + new Date().getFullYear(),

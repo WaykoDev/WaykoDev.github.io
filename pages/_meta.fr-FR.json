@@ -4,6 +4,10 @@
     "type": "page",
     "display": "hidden"
   },
+  "write-ups": {
+    "title": "Write-ups",
+    "type": "page"
+  },
   "another": "Une autre page",
   "advanced": "Avancé (Un dossier)",
   "about": {
@@ -11,9 +15,7 @@
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://x.com/WaykoDev",
-    "newWindow": true
+    "title": "Contact",
+    "type": "page"
   }
 }
